@@ -1,0 +1,19 @@
+{
+  "projects": {},
+  "targets": {
+    "remamulla": {
+      "hosting": {
+        "public": [
+          "remamulla"
+        ],
+        "admin": [
+          "remamulla-admin"
+        ],
+        "mobile": [
+          "remamulla-mobile"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
