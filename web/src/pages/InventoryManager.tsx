@@ -16,6 +16,7 @@ import { AddDressModal } from '../components/catalog/AddDressModal';
 import { DressDetailsModal } from '../components/catalog/DressDetailsModal';
 import { RentDressModal } from '../components/rentals/RentDressModal';
 import { QrCodeGenerator } from '../components/catalog/QrCodeGenerator';
+import { PrintLabelButton } from '../components/catalog/PrintLabelButton';
 import type { Dress } from '../types';
 
 export const InventoryManager = () => {
@@ -375,12 +376,12 @@ export const InventoryManager = () => {
                         </h3>
                         <QrCodeGenerator value={selectedQr} size={200} />
                         <p className="text-sm text-gray-500 font-mono bg-gray-100 p-2 rounded">{selectedQr}</p>
-                        <button
-                            onClick={() => window.print()}
-                            className="text-gold hover:underline text-sm"
-                        >
-                            הדפס קוד
-                        </button>
+                        <div className="flex justify-center">
+                            <PrintLabelButton
+                                dressId={selectedQr}
+                                dressName={dresses.find(d => d.qrCodeValue === selectedQr)?.modelName || 'קוד QR'}
+                            />
+                        </div>
                     </div>
                 </div>
             )}

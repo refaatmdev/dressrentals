@@ -55,7 +55,7 @@ export const DressDetails = () => {
 
     const formatDate = (date: any) => {
         const d = date instanceof Date ? date : date.toDate();
-        return new Intl.DateTimeFormat('he-IL', { day: 'numeric', month: 'long', year: 'numeric' }).format(d);
+        return new Intl.DateTimeFormat('he-IL', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(d);
     };
 
     const getStatusColor = (status: string) => {
@@ -108,10 +108,20 @@ export const DressDetails = () => {
                         </span>
                     </div>
 
-                    {/* Scan Count */}
-                    <div className="flex items-center gap-2 mt-2 opacity-80">
-                        <Eye size={14} />
-                        <span className="text-xs font-medium">{dress.scanCount || 0} צפיות</span>
+                    <div className="flex justify-between items-end mt-2">
+                        {/* Scan Count */}
+                        <div className="flex items-center gap-2 opacity-80">
+                            <Eye size={14} />
+                            <span className="text-xs font-medium">{dress.scanCount || 0} צפיות</span>
+                        </div>
+
+                        {/* Rental Price */}
+                        {dress.rentalPrice && (
+                            <div className="flex items-center gap-1 bg-white/20 backdrop-blur-md px-3 py-1 rounded-lg">
+                                <span className="text-sm">מחיר השכרה:</span>
+                                <span className="font-bold text-lg">₪{dress.rentalPrice}</span>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
